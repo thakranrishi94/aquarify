@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Aqurify - Premium water bottle supply for homes, offices, events, wholesale and retail. Fresh, pure water delivered to your door.">
+    <meta name="keywords" content="water supply, bottled water, water delivery, office water, event water, wholesale water">
+    <title>Aqurify - Premium Water Bottle Supply | Home, Office & Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0077BE;
+            --secondary: #00B4D8;
+            --accent: #90E0EF;
+            --dark: #023047;
+            --light: #CAF0F8;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        /* Animated Water Background */
+        .water-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #CAF0F8 0%, #90E0EF 50%, #00B4D8 100%);
+            opacity: 0.1;
+        }
+
+        .water-waves {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%2390E0EF"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%2300B4D8"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%230077BE"/></svg>') repeat-x;
+            animation: wave 15s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            opacity: 0.3;
+        }
+
+        .wave:nth-of-type(2) {
+            animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes swell {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            position: relative;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 119, 190, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(0, 119, 190, 0.8), 0 0 30px rgba(0, 119, 190, 0.6); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding-top:120px;
+            flex: 1;
+            z-index: 2;
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: textWave 3s ease-in-out infinite;
+        }
+
+        @keyframes textWave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 119, 190, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 119, 190, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Animated Bottle */
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .bottle-container {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .bottle {
+            width: 200px;
+            height: 400px;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(0, 180, 216, 0.3) 50%,
+                rgba(0, 119, 190, 0.5) 100%);
+            border-radius: 20px 20px 40px 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 119, 190, 0.4);
+            overflow: hidden;
+        }
+
+        .bottle::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(0, 180, 216, 0.5));
+            border-radius: 10px 10px 0 0;
+        }
+
+        .water-level {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(180deg, rgba(0, 180, 216, 0.6), rgba(0, 119, 190, 0.8));
+            animation: fillWater 3s ease-in-out infinite;
+        }
+
+        @keyframes fillWater {
+            0%, 100% { height: 70%; }
+            50% { height: 85%; }
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: rise 4s infinite ease-in;
+        }
+
+        .bubble:nth-child(1) { width: 15px; height: 15px; left: 20%; animation-delay: 0s; }
+        .bubble:nth-child(2) { width: 10px; height: 10px; left: 50%; animation-delay: 1s; }
+        .bubble:nth-child(3) { width: 12px; height: 12px; left: 70%; animation-delay: 2s; }
+        .bubble:nth-child(4) { width: 8px; height: 8px; left: 35%; animation-delay: 1.5s; }
+
+        @keyframes rise {
+            0% { bottom: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 100%; opacity: 0; }
+        }
+
+        /* Droplets around bottle */
+        .droplet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.8), rgba(0, 119, 190, 0.4));
+            border-radius: 50% 50% 50% 0;
+            animation: drip 3s infinite;
+        }
+
+        .droplet:nth-child(1) { top: 10%; right: -40px; animation-delay: 0s; }
+        .droplet:nth-child(2) { top: 30%; left: -50px; animation-delay: 1s; }
+        .droplet:nth-child(3) { top: 50%; right: -30px; animation-delay: 2s; }
+
+        @keyframes drip {
+            0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0; }
+            50% { transform: translateY(20px) rotate(45deg); opacity: 1; }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 10%;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(202, 240, 248, 0.3), rgba(144, 224, 239, 0.3));
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 119, 190, 0.3);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 10%;
+            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            animation: slideUp 0.6s ease;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 119, 190, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 10%;
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(202, 240, 248, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(144, 224, 239, 0.4);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, rgba(202, 240, 248, 0.3), rgba(144, 224, 239, 0.3));
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 119, 190, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Scroll Animation */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollBounce 2s infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .bottle {
+                width: 180px;
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            nav {
+                padding: 15px 3%;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 0 5%;
+                min-height: 100vh;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .bottle {
+                width: 160px;
+                height: 320px;
+            }
+
+            .services,
+            .features,
+            .contact {
+                padding: 80px 5%;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(0, 119, 190, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                font-size: 1.1rem;
+            }
+
+            /* Mobile Menu Button */
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.8rem;
+                color: var(--primary);
+                cursor: pointer;
+                padding: 5px;
+                z-index: 1001;
+            }
+
+            /* Hero Section */
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 120px 5% 60px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.95rem;
+            }
+
+            .hero-visual {
+                margin-top: 40px;
+                transform: scale(0.9);
+            }
+
+            .bottle {
+                width: 140px;
+                height: 280px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            /* Services Section */
+            .services,
+            .features,
+            .contact {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .service-card {
+                padding: 30px 25px;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+
+            /* Features Section */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-item {
+                padding: 25px 20px;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+
+            .feature-item h4 {
+                font-size: 1.2rem;
+            }
+
+            /* Contact Section */
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .contact-item {
+                padding: 12px;
+            }
+
+            .contact-icon {
+                font-size: 1.5rem;
+            }
+
+            .contact-form {
+                padding: 30px 25px;
+            }
+
+            /* Footer */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            /* Loading Animation */
+            .loader-container {
+                transform: scale(0.85);
+            }
+
+            .loader-percentage {
+                font-size: 2.5rem;
+            }
+
+            .loader-text {
+                font-size: 1rem;
+            }
+
+            /* Modal - FIXED: Smaller and centered */
+            .modal-content {
+                width: 90%;
+                max-width: 400px;
+                margin: 15vh auto;
+            }
+
+            .modal-header {
+                padding: 25px 20px;
+            }
+
+            .modal-icon {
+                font-size: 2.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .modal-body {
+                padding: 25px 20px;
+            }
+
+            .modal-body p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .logo {
+                font-size: 1.7rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-visual {
+                transform: scale(0.8);
+            }
+
+            .bottle {
+                width: 120px;
+                height: 240px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 25px 20px;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-card p {
+                font-size: 0.95rem;
+            }
+
+            .feature-item {
+                padding: 20px 15px;
+            }
+
+            .feature-icon {
+                font-size: 2rem;
+            }
+
+            .feature-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .feature-item p {
+                font-size: 0.9rem;
+            }
+
+            .contact-item {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .contact-icon {
+                font-size: 1.3rem;
+            }
+
+            .contact-form {
+                padding: 25px 20px;
+            }
+
+            .form-group label {
+                font-size: 0.95rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+
+            /* Modal - FIXED: Even smaller for mobile */
+            .modal-content {
+                width: 90%;
+                max-width: 350px;
+                margin: 20vh auto;
+            }
+
+            .modal-header {
+                padding: 20px 15px;
+            }
+
+            .modal-icon {
+                font-size: 2rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-header p {
+                font-size: 0.9rem;
+            }
+
+            .modal-body {
+                padding: 20px 15px;
+            }
+
+            .modal-body p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .modal-close {
+                padding: 10px 30px;
+                font-size: 0.9rem;
+            }
+
+            .loader-container {
+                transform: scale(0.7);
+            }
+
+            .loader-percentage {
+                font-size: 2rem;
+            }
+
+            .loader-text {
+                font-size: 0.9rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .footer-section p,
+            .footer-section a {
+                font-size: 0.9rem;
+            }
+
+            .copyright {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            /* Very small devices */
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .loader-container {
+                transform: scale(0.6);
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1400px) {
+            .hero h1 {
+                font-size: 5.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .bottle {
+                width: 220px;
+                height: 440px;
+            }
+
+            .section-title {
+                font-size: 4rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .loader,
+            .water-bg,
+            .water-waves,
+            nav,
+            .scroll-indicator,
+            .modal,
+            .btn {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .hero,
+            .services,
+            .features,
+            .contact {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 0.5s 3.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .loader-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Bottle Cap - Initially above the bottle */
+        .loader-cap {
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(180deg, #FFD700, #FFA500);
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: capAttach 0.8s 2.7s ease-out forwards;
+        }
+
+        .loader-cap::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(180deg, #FFA500, #FF8C00);
+            border-radius: 5px;
+        }
+
+        .loader-cap::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        @keyframes capAttach {
+            0% { 
+                top: -100px; 
+                opacity: 1;
+                transform: translateX(-50%) rotate(-10deg);
+            }
+            60% {
+                top: -5px;
+                transform: translateX(-50%) rotate(5deg);
+            }
+            80% {
+                top: 5px;
+                transform: translateX(-50%) rotate(-3deg);
+            }
+            100% { 
+                top: 0; 
+                opacity: 1;
+                transform: translateX(-50%) rotate(0deg);
+            }
+        }
+
+        /* Bottle Neck */
+        .loader-neck {
+            width: 70px;
+            height: 40px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            position: relative;
+            z-index: 2;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+
+        .loader-bottle {
+            width: 160px;
+            height: 280px;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(255, 255, 255, 0.85) 50%,
+                rgba(255, 255, 255, 0.9) 100%);
+            border-radius: 20px 20px 30px 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset -5px 0 10px rgba(0, 0, 0, 0.1),
+                inset 5px 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* FIXED: Water Stream - Now stops at bottle opening */
+        .water-stream {
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 200px;  /* FIXED: Reduced from 520px to 200px */
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(0, 180, 216, 0.3) 10%,
+                rgba(0, 180, 216, 0.7) 40%,
+                rgba(0, 119, 190, 0.9) 100%);
+            border-radius: 10px;
+            z-index: 4;
+            opacity: 0;
+            animation: streamPour 0.5s 0.3s ease-in forwards, streamDisappear 0.3s 2.5s ease-out forwards;
+        }
+
+        /* FIXED: Stream Pour animation */
+        @keyframes streamPour {
+            0% {
+                opacity: 0;
+                top: -200px;
+            }
+            100% {
+                opacity: 1;
+                top: -40px;  /* FIXED: Stream stops at the bottle neck opening */
+            }
+        }
+
+        /* FIXED: Stream Disappear animation */
+        @keyframes streamDisappear {
+            0% {
+                opacity: 1;
+                height: 200px;  /* FIXED: Reduced height */
+            }
+            100% {
+                opacity: 0;
+                height: 0;
+                top: -40px;  /* FIXED: Disappears at the opening, not bottom */
+            }
+        }
+
+        /* Water droplets falling */
+        .water-drop {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.8), rgba(0, 119, 190, 0.6));
+            border-radius: 50% 50% 50% 0;
+            opacity: 0;
+            z-index: 4;
+        }
+
+        .water-drop:nth-child(1) {
+            animation: dropFall 0.4s 0.5s ease-in infinite;
+        }
+
+        .water-drop:nth-child(2) {
+            animation: dropFall 0.4s 0.7s ease-in infinite;
+        }
+
+        .water-drop:nth-child(3) {
+            animation: dropFall 0.4s 0.9s ease-in infinite;
+        }
+
+        @keyframes dropFall {
+            0% {
+                top: -30px;
+                opacity: 1;
+                transform: translateX(-50%) rotate(45deg);
+            }
+            100% {
+                top: 20px;
+                opacity: 0;
+                transform: translateX(-50%) rotate(45deg);
+            }
+        }
+
+        /* Brand Label */
+        .loader-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(0, 119, 190, 0.9), rgba(0, 180, 216, 0.9));
+            border-radius: 10px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .loader-label-brand {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .loader-label-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .loader-label-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            color: white;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* Water Fill - Now fills from bottom to top */
+        .loader-water {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(180deg, 
+                rgba(0, 180, 216, 0.7), 
+                rgba(0, 119, 190, 0.8));
+            animation: fillLoaderFromBottom 2.2s 0.5s ease-in-out forwards;
+            z-index: 1;
+        }
+
+        @keyframes fillLoaderFromBottom {
+            0% { 
+                height: 0%;
+            }
+            100% { 
+                height: 100%;
+            }
+        }
+
+        /* Water Surface Wave */
+        .loader-water::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -50%;
+            width: 200%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: waveMove 1.5s ease-in-out infinite;
+        }
+
+        @keyframes waveMove {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(25%); }
+        }
+
+        /* Bubbles in loader */
+        .loader-bubble {
+            position: absolute;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: riseLoader 2s infinite ease-in;
+        }
+
+        .loader-bubble:nth-child(1) { 
+            width: 12px; 
+            height: 12px; 
+            left: 25%; 
+            animation-delay: 1s; 
+        }
+        .loader-bubble:nth-child(2) { 
+            width: 8px; 
+            height: 8px; 
+            left: 50%; 
+            animation-delay: 1.5s; 
+        }
+        .loader-bubble:nth-child(3) { 
+            width: 10px; 
+            height: 10px; 
+            left: 70%; 
+            animation-delay: 2s; 
+        }
+
+        @keyframes riseLoader {
+            0% { bottom: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 100%; opacity: 0; }
+        }
+
+        /* Percentage Counter */
+        .loader-percentage {
+            margin-top: 30px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .loader-percentage::after {
+            content: '0%';
+            animation: percentage 2.7s 0.5s ease-in-out forwards;
+        }
+
+        @keyframes percentage {
+            0% { content: '0%'; }
+            10% { content: '10%'; }
+            20% { content: '20%'; }
+            30% { content: '30%'; }
+            40% { content: '40%'; }
+            50% { content: '50%'; }
+            60% { content: '60%'; }
+            70% { content: '70%'; }
+            80% { content: '80%'; }
+            90% { content: '90%'; }
+            100% { content: '100%'; }
+        }
+
+        .loader-text {
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* FIXED: Thank You Modal - Smaller and properly centered */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, white, var(--light));
+            margin: 10vh auto;  /* FIXED: Changed from 10% to 10vh for better centering */
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;  /* FIXED: Reduced from 500px to 450px */
+            box-shadow: 0 20px 60px rgba(0, 119, 190, 0.4);
+            animation: slideIn 0.4s ease;
+            overflow: hidden;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 30px 25px;  /* FIXED: Reduced padding */
+            text-align: center;
+            color: white;
+        }
+
+        .modal-icon {
+            font-size: 3rem;  /* FIXED: Reduced from 4rem */
+            margin-bottom: 10px;  /* FIXED: Reduced from 15px */
+            animation: bounce 1s ease infinite;
+        }
+
+        .modal-header h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;  /* FIXED: Reduced from 2.5rem */
+            margin-bottom: 8px;  /* FIXED: Reduced from 10px */
+            letter-spacing: 2px;
+        }
+
+        .modal-header p {
+            font-size: 1rem;  /* FIXED: Reduced from 1.1rem */
+            opacity: 0.95;
+        }
+
+        .modal-body {
+            padding: 30px 25px;  /* FIXED: Reduced padding */
+            text-align: center;
+        }
+
+        .modal-body p {
+            font-size: 1rem;  /* FIXED: Reduced from 1.1rem */
+            line-height: 1.6;  /* FIXED: Reduced from 1.8 */
+            color: var(--dark);
+            margin-bottom: 20px;  /* FIXED: Reduced from 30px */
+        }
+
+        .modal-close {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 35px;  /* FIXED: Reduced from 15px 40px */
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-close:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 119, 190, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-container">
+            <div class="water-stream"></div>
+            <div class="water-drop"></div>
+            <div class="water-drop"></div>
+            <div class="water-drop"></div>
+            <div class="loader-cap"></div>
+            <div class="loader-neck"></div>
+            <div class="loader-bottle">
+                <div class="loader-label">
+                    <div class="loader-label-icon">💧</div>
+                    <div class="loader-label-brand">AQURIFY</div>
+                    <div class="loader-label-text">Premium Water</div>
+                </div>
+                <div class="loader-water">
+                    <div class="loader-bubble"></div>
+                    <div class="loader-bubble"></div>
+                    <div class="loader-bubble"></div>
+                </div>
+            </div>
+        </div>
+        <div class="loader-percentage"></div>
+        <div class="loader-text">Filling Your Bottle...</div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="water-bg"></div>
+    <div class="water-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">💧 AQURIFY</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#features">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>PURE WATER<br>DELIVERED</h1>
+            <h2>Fresh & Clean Every Time</h2>
+            <p>Your trusted partner for premium bottled water supply. We deliver pure, refreshing water for homes, offices, events, and wholesale orders. Quality you can taste, service you can trust.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Order Now</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="bottle-container">
+                <div class="bottle">
+                    <div class="water-level">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+                </div>
+                <div class="droplet"></div>
+                <div class="droplet"></div>
+                <div class="droplet"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Home Delivery</h3>
+                <p>Fresh bottled water delivered right to your doorstep. Regular subscriptions available for hassle-free daily water supply.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Office Supply</h3>
+                <p>Keep your workplace hydrated with our reliable office water supply. Bulk orders with flexible delivery schedules.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎉</div>
+                <h3>Event Catering</h3>
+                <p>Planning a wedding, party, or corporate event? We provide bottled water for all occasions, big or small.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Wholesale & Retail</h3>
+                <p>Competitive wholesale prices for retailers and distributors. Quality water bottles in bulk quantities at great rates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose Aqurify?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <h4>100% Pure</h4>
+                <p>Filtered and purified through multiple stages for ultimate freshness</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <h4>Fast Delivery</h4>
+                <p>Same-day delivery available in most areas</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h4>Best Prices</h4>
+                <p>Competitive pricing with special discounts for bulk orders</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌟</div>
+                <h4>Quality Assured</h4>
+                <p>Certified and tested for safety and purity standards</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔄</div>
+                <h4>Eco-Friendly</h4>
+                <p>Reusable bottles with free pickup and exchange service</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📞</div>
+                <h4>24/7 Support</h4>
+                <p>Customer service available round the clock for your convenience</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <strong>Phone</strong><br>
+                        +91 XXXX-XXXXXX
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        info@aqurify.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Address</strong><br>
+                        Your City, Your State
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div>
+                        <strong>Working Hours</strong><br>
+                        24/7 Available
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" method="POST">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type *</label>
+                        <select name="service_type" required>
+                            <option value="">Select Service</option>
+                            <option value="Home Delivery">Home Delivery</option>
+                            <option value="Office Supply">Office Supply</option>
+                            <option value="Event Order">Event Order</option>
+                            <option value="Wholesale/Retail">Wholesale/Retail</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity Required *</label>
+                        <input type="number" name="quantity" placeholder="Number of bottles" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Address *</label>
+                        <textarea name="address" placeholder="Your delivery address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Additional details or special requests"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">💧</div>
+                <h2>THANK YOU!</h2>
+                <p>From Aqurify Team</p>
+            </div>
+            <div class="modal-body">
+                <p>We have received your order successfully! Our team will contact you shortly to confirm your delivery details.</p>
+                <p>Stay hydrated with Aqurify! 💙</p>
+                <button class="modal-close" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Aqurify</h3>
+                <p>Your trusted source for pure, fresh bottled water. Serving homes, offices, and events with quality and reliability.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#features">Why Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#services">Home Delivery</a>
+                <a href="#services">Office Supply</a>
+                <a href="#services">Event Catering</a>
+                <a href="#services">Wholesale</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Aqurify Water Supply. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            navLinks.classList.toggle('active');
+            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const menuBtn = document.getElementById('mobileMenuBtn');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.textContent = '☰';
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('thankYouModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('thankYouModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('thankYouModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // For demonstration, we'll show the modal immediately
+            // In production, you would send this to your backend first
+            
+            // Option 1: Send to PHP backend (uncomment when ready)
+            /*
+            fetch('submit_form.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    openModal();
+                    this.reset();
+                } else {
+                    alert('Error submitting form. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting form. Please try again.');
+            });
+            */
+            
+            // Option 2: For now, just show modal (remove this in production)
+            openModal();
+            this.reset();
+            
+            // Option 3: Log form data to console for testing
+            console.log('Form Data:');
+            for (let [key, value] of formData.entries()) {
+                console.log(key + ': ' + value);
+            }
+        });
+    </script>
+</body>
+</html>
